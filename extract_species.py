@@ -5,6 +5,7 @@ def extract_species_from_nucleotide_data(mirna_file, output_file):
 
     with open(mirna_file, 'r') as f:
         with open(output_file, 'w') as out_f:
+            seen_species = set()  # Set to track unique species names
             for line in f:
                 parts = line.split()  # Split the line into words
                 # Find the index of the first valid nucleotide sequence
@@ -22,14 +23,15 @@ def extract_species_from_nucleotide_data(mirna_file, output_file):
                         # Skip malformed lines
                         continue
 
-                    out_f.write(species_name + '\n')  # Write the species name
+                    if species_name not in seen_species:
+                        out_f.write(species_name + '\n')  # Write the species name
+                        seen_species.add(species_name)  # Add to the set
 
     print(f"Extraction completed. Species have been written to: {output_file}")
 
 # File paths
-mirna_file = "mirna.txt"  # Replace with the path to your mirna.txt file
+mirna_file = "input\mirna.txt"  # Replace with the path to your mirna.txt file
 output_file = "species.txt"  # The output file for species names
 
 # Run the function
 extract_species_from_nucleotide_data(mirna_file, output_file)
- 

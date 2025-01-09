@@ -1,8 +1,7 @@
 Caenorhabditis elegans
 Homo sapiens
-Sorghum bicolor
-Apis mellifera
-Anopheles gambiae
+Drosophila melanogaster
 Mus musculus
+Arabidopsis thaliana
+Caenorhabditis briggsae
 Rattus norvegicus
-Canis familiaris

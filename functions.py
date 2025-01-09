@@ -10,27 +10,27 @@ def is_valid_species_name(word):
     """Check if a word starts with a single uppercase letter followed by lowercase letters."""
     return word[0].isupper() and word[1:].islower()
 
-def process_data(mirna_file):
+def process_data(mirna_file, species_of_interest):
     """
-    Process the data from the file to extract species and their nucleotide sequences.
+    Process the data from the file to extract species and their nucleotide sequences,
+    filtered by the species of interest.
     """
     species_sequences = defaultdict(list)
 
-    # Read and process the file
     with open(mirna_file, 'r') as f:
         for line in f:
-            parts = line.split()  # Split the line into words
-            # Find the first valid species name
+            parts = line.split()
             species_name_index = next(
                 (i for i, word in enumerate(parts) if is_valid_species_name(word)),
                 None
             )
-            
+
             if species_name_index is not None and species_name_index + 1 < len(parts):
                 species_name = f"{parts[species_name_index]} {parts[species_name_index + 1]}"
-                # Collect nucleotide sequences
-                sequences = [word for word in parts if is_nucleotide_sequence(word)]
-                species_sequences[species_name].extend(sequences)
+
+                if species_name in species_of_interest:
+                    sequences = [word for word in parts if is_nucleotide_sequence(word)]
+                    species_sequences[species_name].extend(sequences)
     return species_sequences
 
 def calculate_base_rates_and_draw_charts(species_sequences, output_folder):
