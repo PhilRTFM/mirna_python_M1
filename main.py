@@ -6,7 +6,7 @@ def main():
     species_file = input("Enter the path to the species.txt file: ").strip()
     output_folder = input("Enter the desired output folder: ").strip()
 
-    # Check if files exist
+    # Check if files existmir
     if not os.path.isfile(mirna_file):
         print(f"Error: {mirna_file} does not exist.")
         return
@@ -29,7 +29,7 @@ def main():
     calculate_base_rates_and_draw_charts(filtered_sequences, output_folder)
 
     # Step 4: Calculate mean base rates and draw the overall chart
-    calculate_mean_base_rates_and_draw_overall_chart(filtered_sequences, output_folder)
+    calculate_mean_base_rates_and_draw_overall_chart(filtered_sequences)
 
 if __name__ == "__main__":
     main()
