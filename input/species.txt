@@ -1,8 +1,0 @@
-Caenorhabditis elegans
-Homo sapiens
-Sorghum bicolor
-Apis mellifera
-Anopheles gambiae
-Mus musculus
-Rattus norvegicus
-Canis familiaris
