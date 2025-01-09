@@ -30,8 +30,8 @@ def extract_species_from_nucleotide_data(mirna_file, output_file):
     print(f"Extraction completed. Species have been written to: {output_file}")
 
 # File paths
-mirna_file = "input\mirna.txt"  # Replace with the path to your mirna.txt file
-output_file = "species.txt"  # The output file for species names
+    mirna_file = input("Enter the path to the mirna.txt file: ").strip()
+    output_file = input("Desired output name for species.txt file: ").strip()
 
 # Run the function
 extract_species_from_nucleotide_data(mirna_file, output_file)
