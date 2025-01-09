@@ -67,7 +67,7 @@ def calculate_base_rates_and_draw_charts(species_sequences, output_folder):
         plt.close()
     print(f"Pie charts saved in: {output_folder}")
 
-def calculate_mean_base_rates_and_draw_overall_chart(species_sequences, output_folder):
+def mean_overall_chart(species_sequences):
     """
     Calculate mean base rates across all species and draw a single overall pie chart.
     """
@@ -99,7 +99,7 @@ def calculate_mean_base_rates_and_draw_overall_chart(species_sequences, output_f
         startangle=140
     )
     plt.title("Mean Base Composition Across All Species")
-    overall_chart_file = os.path.join(output_folder, "overall_base_composition.png")
+    overall_chart_file = os.path.join("overall_base_composition.png")
     plt.savefig(overall_chart_file)
     plt.close()
 

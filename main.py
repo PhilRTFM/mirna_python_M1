@@ -29,7 +29,7 @@ def main():
     calculate_base_rates_and_draw_charts(filtered_sequences, output_folder)
 
     # Step 4: Calculate mean base rates and draw the overall chart
-    calculate_mean_base_rates_and_draw_overall_chart(filtered_sequences)
+    mean_overall_chart(filtered_sequences)
 
 if __name__ == "__main__":
     main()
