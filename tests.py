@@ -1,5 +1,5 @@
 import unittest
-from functions import *
+from functions import is_nucleotide_sequence, is_valid_species_name, process_data, calculate_base_rates_and_draw_charts, mean_overall_chart
 import os
 import tempfile
 
@@ -24,7 +24,8 @@ class TestFunctions(unittest.TestCase):
             )
             temp_file_path = temp_file.name
 
-        result = process_data(temp_file_path)
+        species_of_interest = {"Caenorhabditis elegans"}
+        result = process_data(temp_file_path, species_of_interest)
         os.unlink(temp_file_path)
 
         expected_species = "Caenorhabditis elegans"
