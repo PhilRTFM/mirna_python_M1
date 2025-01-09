@@ -48,11 +48,16 @@ class TestFunctions(unittest.TestCase):
                 "Caenorhabditis elegans": ["AUGCUACG", "CUGAAC"],
                 "Homo sapiens": ["UUUCCGG", "AACGUU"]
             }
-            os.chdir(temp_dir)
-            mean_overall_chart(species_sequences)
+            current_dir = os.getcwd()  # Sauvegarde du répertoire courant
+            try:
+                os.chdir(temp_dir)  # Change temporairement de répertoire
+                mean_overall_chart(species_sequences)
 
-            output_file = os.path.join(temp_dir, "overall_base_composition.png")
-            self.assertTrue(os.path.exists(output_file))
+                output_file = os.path.join(temp_dir, "overall_base_composition.png")
+                self.assertTrue(os.path.exists(output_file))
+            finally:
+                os.chdir(current_dir)  # Restauration du répertoire courant
+
 
 if __name__ == '__main__':
     unittest.main()
